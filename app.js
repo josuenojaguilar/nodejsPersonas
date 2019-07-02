@@ -19,9 +19,11 @@ app.use(bodyParser.json());
 // Cargar rutas de Teacher
 
 var persona_routes = require('./routes/persona');
+var usuario_routes = require('./routes/usuario');
 
 // Ruta global y específica
 app.use('/v1', persona_routes);
+app.use('/v2', usuario_routes);
 
 //CORS
 

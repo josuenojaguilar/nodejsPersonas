@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PersonaSchema = Schema({
+var UsuarioSchema = Schema({
     primer_nombre: String,
     segundo_nombre: String,
     primer_apellido: String,
@@ -16,8 +16,9 @@ var PersonaSchema = Schema({
             celular: Number,
             casa: Number,
             otro: Number
-        }
+        },
+    contactos: []
     
 });
 
-module.exports = mongoose.model('Persona', PersonaSchema);
+module.exports = mongoose.model('Usuario', UsuarioSchema);

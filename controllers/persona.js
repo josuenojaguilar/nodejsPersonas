@@ -23,30 +23,15 @@ function crearPersona(req, res){
     var persona = new Persona();
     var params = req.body;
     
-    if(params.primer_nombre && params.segundo_nombre && params.primer_apellido && params.segundo_apellido &&
-        params.fecha_nacimiento && params.religion && params.correo && params.genero &&
-        params.departamento && params.municipio && params.zona && params.avenida && params.calle && params.noCasa &&
-        params.celular && params.casa){
+    if(params.primer_nombre && params.celular){
         
             persona.primer_nombre = params.primer_nombre;
             persona.segundo_nombre = params.segundo_nombre;
             persona.primer_apellido = params.primer_apellido;
             persona.segundo_apellido = params.segundo_apellido;
-            persona.apellido_conyugal = params.apellido_conyugal;
             persona.fecha_nacimiento = params.fecha_nacimiento;
-            persona.religion = params.religion;
             persona.correo = params.correo;
-            persona.genero = params.genero;
-
-            
-                persona.direccion.departamento = params.departamento,
-                persona.direccion.municipio = params.municipio,
-                persona.direccion.zona = params.zona,
-                persona.direccion.avenida = params.avenida,
-                persona.direccion.calle = params.calle,
-                persona.direccion.noCasa = params.noCasa
-            
-            
+            persona.direccion = params.direccion;
 
                 persona.telefonos.celular = params.celular,
                 persona.telefonos.casa = params.casa,
