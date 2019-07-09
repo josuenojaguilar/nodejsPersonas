@@ -94,10 +94,56 @@ function newContact(req, res){
 
 }
 
+function login(req, res){
+    var params = req.body;
+    var correo = params.correo;
+console.log(params);
+    if(correo){
+        Usuario.findOne({correo: correo}, (err, usuario)=>{
+            if(err){
+                console.log(err)
+                res.status(500).send({message: 'Error general'});
+            }else{
+                if(!usuario){
+                    res.status(500).send({message: 'El usuario con el que quieres navegar no existe'});
+                }else{
+                    res.status(200).send({usuario});
+                }
+            }
+        });
+    }else{
+        res.status(200).send({message: 'No has enviado datos'})
+    }
+}
+
+function searchContact(req, res){
+    var params = req.body;
+    var id = params._id;
+    console.log(params);
+    if(id){
+        Usuario.findOne({_id: id}, (err, usuario)=>{
+            if(err){
+                console.log(err)
+                res.status(500).send({message: 'Error general'});
+            }else{
+                if(!usuario){
+                    res.status(500).send({message: 'El usuario con el que quieres navegar no existe'});
+                }else{
+                    res.status(200).send({usuario});
+                }
+            }
+        });
+    }else{
+        res.status(200).send({message: 'No has enviado datos'})
+    }
+}
+
 module.exports = {
     pruebaUsuario,
     getUsuarios,
     crearUsuario,
-    newContact
+    newContact,
+    login,
+    searchContact
 
 }
